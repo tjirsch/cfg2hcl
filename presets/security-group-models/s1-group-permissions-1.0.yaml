@@ -1,6 +1,9 @@
 #
 # Include under organization_iam_member:
 #
+!format ["domain:{}", *customer-domain]:
+  - roles/resourcemanager.organizationViewer
+
 !format ["group:{}@{}", *gcp-organization-admins-name, *customer-domain]:
   - roles/resourcemanager.organizationAdmin
   - roles/iam.organizationRoleAdmin
@@ -52,7 +55,7 @@
   - roles/logging.configWriter
   - roles/logging.privateLogViewer
   - roles/monitoring.viewer
-  - roles/logging.viewer 
+  - roles/logging.viewer
   - roles/container.viewer
   - roles/iam.organizationRoleViewer
   - roles/iam.securityReviewer

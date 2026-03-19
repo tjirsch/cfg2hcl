@@ -1,0 +1,6 @@
+google_billing_account_iam_member:
+  billing_account_id: *billing-account-infra
+  !format ["serviceAccount:{}@{}.iam.gserviceaccount.com", *svc-iac-account, *infra-project-name]:
+    - roles/billing.admin
+  !format ["domain:{}", *customer-domain]:
+    - roles/billing.user
